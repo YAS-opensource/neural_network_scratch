@@ -4,3 +4,7 @@ clean:
 	find . -name \*.pyc -type f -delete
 	find . -name __pycache__  -type d -delete
 	rm -rf .pytest_cache/
+test:
+	pytest
+run:
+	python main.py
