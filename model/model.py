@@ -19,11 +19,11 @@ class Model(object):
     def add_layer(self, neurons, func):
         layer = np.random.rand(neurons, 1)
         bias = np.random.rand(neurons, 1)
-        self.layers.append((layer, func))
+        self.layers.append([layer, func])
         self.bias.append(bias)
 
     def train(self, data, epoch=10, learn_rate=0.001, batch_size=2):
         data = np.array(data, dtype=np.float32)
         if data.shape != self.layers[0][0].shape:
             raise ValueError("Shape does not match")
-        self.layers[0] = (np.copy(data), self.layers[0][1])
+        self.layers[0][0] = np.copy(data)
